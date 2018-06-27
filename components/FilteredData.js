@@ -26,11 +26,15 @@ class FilteredData extends React.Component {
           >
           <View style={{marginTop: 22, width: 100, backgroundColor: '#FFB6C1', height: '100%'}}>
             <View>
+            <Text>Adjust Filter for</Text>
               <Button 
-              title="Adjust Uni Filters"
+              title="University"
               onPress={() => navigate('UniFilters')}
               />
-
+              <Button 
+              title="Course"
+              onPress={() => navigate('CourseFilters')}
+              />
               <TouchableHighlight
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
