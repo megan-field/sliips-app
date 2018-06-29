@@ -1,22 +1,37 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from 'react-navigation';
 
-import HomeScreen from './components/LandingPage';
-import NoUniScreen from './components/noToUniversityPage';
-import YesUniScreen from './components/yesToUniversityPage';
-import CourseChoice from './components/CourseChoice';
-import UniFilters from './components/UniFilters';
-import CourseFilters from './components/CourseFilters';
-import FilteredData from './components/FilteredData';
+import Home from './Components/Home';
+import UniDecision from './Components/UniDecision';
+
+import CourseChoice from './Components/CourseChoice';
+import CourseSelection from './Components/CourseSelection';
+import CourseCards from './Components/CourseCards';
+
+import UniChoice from './Components/UniChoice';
+import UniSelection from './Components/UniSelector';
+import UniCards from './Components/UniCards';
+
+import FilteredData from './Components/FilteredData';
+
+import ColourPalette from './Components/ColourPalette';
+
 
 const App = createStackNavigator({
-  FilteredData: { screen: FilteredData },
-  Home: { screen: HomeScreen },
-  YesToUni: { screen: YesUniScreen },
-  NoToUni: { screen: NoUniScreen },
+  Home: { screen: Home },
+  UniDecision: { screen: UniDecision },
+  
   CourseChoice: { screen: CourseChoice },
-  UniFilters: { screen: UniFilters },
-  CourseFilters: { screen: CourseFilters },
+  CourseSelection: { screen: CourseSelection },
+  CourseCards: { screen: CourseCards },
+  
+  UniChoice: { screen: UniChoice },
+  UniSelection: { screen: UniSelection },
+  UniCards: { screen: UniCards }, 
+
+  FilteredData: { screen: FilteredData },
+
+  Colour: { screen: ColourPalette },
 })
 
 export default App;

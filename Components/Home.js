@@ -1,23 +1,25 @@
 import React from 'react';
-import { Text, View, TextInput, StyleSheet } from 'react-native';
+import { Text, View, TextInput, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 class LandingPage extends React.Component {
 	  constructor(props) {
     super(props)
     this.state = {
-      cards: ['Do you want to go to university?'],
+      cards: [''],
       swipedAllCards: false,
-      swipeDirection: '',
-      isSwipingBack: false,
       cardIndex: 0,
     }
   }
 
+
   renderCard = (card, index) => {
     return (
       <View style={styles.card}>
-        <Text key={index} style={styles.text}>{card}</Text>
+        <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
+          {/*<Image source={require('')} />*/}
+            <Text key={index} style={styles.text}>{card}</Text>
+        </View>
       </View>
     )
   };
@@ -32,16 +34,16 @@ class LandingPage extends React.Component {
     const { navigate } = this.props.navigation;
 		return (
       <View>
+      <Text style={styles.heading}>Do you want to go to university?</Text>
 			  <View>
 				  <Swiper
             ref={swiper => {
               this.swiper = swiper
             }}
-            onSwiped={this.onSwiped}
             cards={this.state.cards}
-            onSwipedRight={(cardIndex) => navigate('YesToUni')}
-            onSwipedBottom={(cardIndex) => navigate('NoToUni')}
-            onSwipedLeft={(cardIndex) => navigate('NoToUni')}
+            onSwipedRight={(cardIndex) => navigate('UniDecision', { decision: 'yes'})}
+            onSwipedBottom={(cardIndex) => navigate('UniDecision', { decision: 'no'})}
+            onSwipedLeft={(cardIndex) => navigate('UniDecision', { decision: 'no'})}
             cardIndex={this.state.cardIndex}
             renderCard={this.renderCard}
             onSwipedAll={this.onSwipedAllCards}
@@ -62,8 +64,8 @@ class LandingPage extends React.Component {
                     flexDirection: 'column',
                     alignItems: 'flex-end',
                     justifyContent: 'flex-start',
-                    marginTop: 30,
-                    marginLeft: -30
+                    marginTop: 300,
+                    marginLeft: 0
                   }
                 }
               },
@@ -80,8 +82,8 @@ class LandingPage extends React.Component {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
-                    marginTop: 30,
-                    marginLeft: 30
+                    marginTop: 300,
+                    marginLeft: 0
                   }
                 }
               },
@@ -98,19 +100,14 @@ class LandingPage extends React.Component {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
-                    marginTop: 30,
-                    marginLeft: 30
+                    marginTop: 300,
+                    marginLeft: 0
                   }
                 }
               },
             }}
           >
           </Swiper>
-        </View>
-        <View style={{ marginTop: 300 }}>
-          <Text style={{ textAlign: 'center' }}>Swipe <Text style={{fontWeight: 'bold'}}>Right </Text>for Yes</Text>
-          <Text style={{ textAlign: 'center' }}><Text style={{fontWeight: 'bold'}}>Left </Text>for No</Text>
-          <Text style={{ textAlign: 'center' }}>and <Text style={{fontWeight: 'bold'}}>Down </Text>for Don't Know</Text>
         </View>
 			</View>
 			)
@@ -121,11 +118,18 @@ class LandingPage extends React.Component {
 const styles = StyleSheet.create({
   card: {
     height: 200,
-    borderRadius: 4,
+    borderRadius: 10,
     borderWidth: 2,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
     backgroundColor: 'white',
+  },
+  heading: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 40,
   },
   text: {
     textAlign: 'center',
@@ -138,7 +142,16 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     backgroundColor: 'transparent'
-  }
+  },
+  box: {
+
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#000',
+    width: 250,
+    alignSelf: 'center',
+    height: 175
+  },
 })
 
 export default LandingPage;

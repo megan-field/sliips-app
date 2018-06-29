@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
-class CourseChoice extends React.Component {
+class UniChoice extends React.Component {
 	static navigationOptions = { 
 		header: null, 
 	};
@@ -11,40 +11,39 @@ class CourseChoice extends React.Component {
    		super(props)
 
 	    this.state = {
-	      cards: [''],
-	      answer: [],
+	      cards: ['Do you know what university you want to go to?'],
 	      cardIndex: 0,
 		  costs: 0,
+		  answer: [],
 	    }
 	}
 
 	renderCard = (card, index) => {
 		return (
 			<View key={index} style={styles.card}>
-		        <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
-		          	{/*<Image source={require('')} />*/}
-	         		<Text key={index} style={styles.text}>{card}</Text>
-	    	    </View>
-		    </View>
+        <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
+          <View style={styles.box}>
+          {/*<Image source={require('')} />*/}
+          </View>
+            <Text key={index} style={styles.text}>{card}</Text>
+        </View>
+      </View>
 			)
 	}
 
-// sets state with answer and navigates to next page on swipe.
+// sets the state with the answer, and navigates to another page.
 	handleSwipe = (answer) => {
 	  const { navigate } = this.props.navigation;
+	  this.setState({ answer })
 
-	  let navigateTo = 'CourseCards';
-	  if (answer === 'yes') navigateTo = 'CourseSelection'
-
-	  this.setState({ answer });
-	  navigate(navigateTo)
+	  if (answer === 'yes') navigate('UniSelection');
+	  else navigate('UniCards')
 	}
 
 	render() {
 		return (
-			<View style={styles.container}>
-			<Text style={styles.heading}>Do you know what course you want to study?</Text>
-				<View>
+			<View>
+				<View style={styles.container}>
 					<Swiper
 			            ref={swiper => {
 			              this.swiper = swiper
@@ -112,19 +111,12 @@ const styles = StyleSheet.create({
   	marginTop: 50,
   },
     card: {
-    height: 200,
+    height: 300,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
     backgroundColor: 'white',
-  },
-    heading: {
-  	textAlign: 'center',
-  	fontSize: 20,
-  	marginLeft: 30,
-  	marginRight: 30,
-  	marginTop: 40,
   },
   text: {
     textAlign: 'center',
@@ -148,4 +140,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default CourseChoice;
+export default UniChoice;
