@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 class CourseChoice extends React.Component {	
-		constructor(props) {
+	constructor(props) {
    		super(props)
 
 	    this.state = {
@@ -19,7 +19,6 @@ class CourseChoice extends React.Component {
 			<View key={index} style={styles.card}>
 		        <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
 		          	{/*<Image source={require('')} />*/}
-	         		<Text key={index} style={styles.text}>{card}</Text>
 	    	    </View>
 		    </View>
 			)
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
   	marginTop: 50,
   },
   card: {
-    marginTop: 50,
+    marginTop: 20,
     height: 250,
     borderRadius: 10,
     borderWidth: 2,
@@ -114,12 +113,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white',
   },
-    heading: {
+  heading: {
   	textAlign: 'center',
-  	fontSize: 20,
+  	fontSize: 25,
   	marginLeft: 30,
   	marginRight: 30,
   	marginTop: 40,
+  	color: '#909090'
   },
   text: {
     textAlign: 'center',

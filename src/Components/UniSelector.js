@@ -41,12 +41,12 @@ class UniSelection extends React.Component {
 				<View>
 					<Text style={styles.text}>Choose the universities you are interested in.</Text>
 				</View>
-				<View style={{ height: 150, marginTop: 30 }}>
+				<View style={{ height: 150, marginTop: 30, backgroundColor: '#909090', width: 200, alignSelf: 'center', borderRadius: 10 }}>
 				<FlatList
 				data={[{ key: 'Glasgow' }, { key: 'Edinburgh' }, { key: 'Manchester' }, { key: 'London' }, { key: 'Birmingham' }, { key: 'Liverpool' }]}
 				renderItem={({item}) => (
 					<View>
-						<Button onPress={() => this.handlePicker(item.key)} title={item.key} />
+						<Button onPress={() => this.handlePicker(item.key)} title={item.key} color='white' />
 					</View>
 					)}
 				/>
@@ -56,7 +56,7 @@ class UniSelection extends React.Component {
 						data={courseList.map((course, i) => ({ key: course, index: i})).sort((a, b) => b.index - a.index)}
 						renderItem={({item}) => (
 							<View key={item.index} style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-								<Text>{item.key}</Text><Button onPress={() => {this.handleRemove(item.key)}} title='x' />
+								<Text style={{ color: '#909090' }}>{item.key}</Text><Button onPress={() => {this.handleRemove(item.key)}} title='x' />
 							</View>
 					)}
 						/>
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     	fontSize: 20,
     	marginLeft: 10,
     	marginRight: 10,
+    	color: '#909090',
 	}
 })
 

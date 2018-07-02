@@ -20,7 +20,7 @@ class CourseCards extends React.Component {
 		if (card === 'explainerText') {
 			return (
 				<View style={styles.card} key={index}>
-					<Text style={styles.text}>Narrow down whats important to you when it comes to choosing a course.</Text>
+					<Text style={styles.text}>Narrow down whats important to you when it comes to choosing a university.</Text>
 				</View>
 				)
 		} else if (card === 'nightLife') {
@@ -164,7 +164,7 @@ class CourseCards extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
-  	marginTop: 50,
+  	marginTop: 20,
     height: 250,
     borderRadius: 4,
     borderWidth: 1,
@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
   	fontSize: 20,
   	marginLeft: 30,
   	marginRight: 30,
+  	color: '#909090',
   },
   image: {
   	height: 100,

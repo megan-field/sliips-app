@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
     return (
       <View style={styles.card}>
         <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
-          {/*<Image source={require('')} />*/}
+          {/*<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />*/}
             <Text key={index} style={styles.text}>{card}</Text>
         </View>
       </View>
@@ -120,17 +120,18 @@ class LandingPage extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
-    marginTop: 50,
+    marginTop: 20,
     height: 250,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
   },
   heading: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 30,
+    color: '#909090',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 40,
@@ -155,6 +156,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     height: 175
   },
+  image: {
+    height: 200,
+    width: 200,
+  }
 })
 
 export default LandingPage;

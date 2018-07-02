@@ -14,7 +14,7 @@ class uniDecision extends React.Component {
 	handleButtons(answer) {
 		const answers = Object.assign([], this.state.answers);
 
-		if (answers.includes(answer)) answers.splice(answers.indexOf(answer), 1)
+		if (answers.includes(answer)) answers.splice(answers.indexOf(answer), 1);
 		else answers.push(answer);
 
 		this.setState({ answers });
@@ -22,14 +22,14 @@ class uniDecision extends React.Component {
 
 	handleNext() {
 		const { navigate } = this.props.navigation;
-		if (this.state.answers.length > 0) navigate('CourseChoice')
+		if (this.state.answers.length > 0) navigate('CourseChoice');
 	}
 
 	render() {
 		const clicked = { Passion: '#808080', Job: '#808080', Cost: '#808080', "No Benefits": '#808080', "Not Clever Enough": '#808080', 'Won\'t Fit In': '#808080', "Welfare/ Support": '#808080', "Responsabilities at Home": '#808080', Other: '#808080', next: '#88aece' }
 		// turning each button view green once it has been clicked.
 		Object.keys(clicked).forEach(element => {
-			if (this.state.answers.includes(element)) clicked[element] = '#32CD32'
+			if (this.state.answers.includes(element)) clicked[element] = '#32CD32';
 		})
 
 		if (this.state.answers.length > 0) clicked.next = '#4682B4';
@@ -68,7 +68,7 @@ class uniDecision extends React.Component {
 			        />
 				</View>
 	        </View>
-		)
+		);
 	} else {
 		return (
 			<ScrollView>
@@ -132,7 +132,7 @@ class uniDecision extends React.Component {
 					</View>
 				</View>
 	        </ScrollView>
-		)
+		);
 	}
 	}
 }
@@ -151,7 +151,8 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
     	margin: 20,
     	fontSize: 25,
+    	color: '#909090',
 	}
-})
+});
 
 export default uniDecision;

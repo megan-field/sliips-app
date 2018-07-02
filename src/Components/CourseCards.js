@@ -40,7 +40,6 @@ class CourseCards extends React.Component {
 		} else if (card === 'costs') {
 			return (
 				<View style={styles.card} key={index}>
-					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 					<View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', flex: 1}}>
 					  <View>
 					    <Text>0 </Text>
@@ -198,7 +197,7 @@ class CourseCards extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
-  	marginTop: 50,
+  	marginTop: 20,
     height: 250,
     borderRadius: 4,
     borderWidth: 1,
@@ -211,6 +210,7 @@ const styles = StyleSheet.create({
   	fontSize: 20,
   	marginLeft: 30,
   	marginRight: 30,
+  	color: '#909090',
   },
   image: {
   	height: 100,

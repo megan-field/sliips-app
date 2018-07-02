@@ -29,10 +29,6 @@ const App = createStackNavigator({
   UniCards: { screen: UniCards, navigationOptions: { header: null } }, 
 
   FilteredData: { screen: FilteredData, navigationOptions: { header: null } },
-}, { 
-	cardStyle: { 
-		// backgroundColor: '#355c7d',
-	}
 })
 
 export default App;

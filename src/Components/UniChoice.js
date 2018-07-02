@@ -17,12 +17,11 @@ class UniChoice extends React.Component {
 	renderCard = (card, index) => {
 		return (
 			<View key={index} style={styles.card}>
-        <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
-          {/*<Image source={require('')} />*/}
-            <Text key={index} style={styles.text}>{card}</Text>
-        </View>
-      </View>
-			)
+        		<View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
+          			{/*<Image source={require('')} />*/}
+        		</View>
+      		</View>
+		)
 	}
 
 // sets the state with the answer, and navigates to another page.
@@ -60,7 +59,7 @@ class UniChoice extends React.Component {
 			                    borderColor: 'black',
 			                    color: 'white',
 			                    borderWidth: 1,
-			                    fontSize: 30,
+			                    fontSize: 20,
 			                  },
 			                  wrapper: {
 			                    flexDirection: 'column',
@@ -79,7 +78,7 @@ class UniChoice extends React.Component {
 			                    borderColor: 'black',
 			                    color: 'white',
 			                    borderWidth: 1,
-			                    fontSize: 30,
+			                    fontSize: 20,
 			                  },
 			                  wrapper: {
 			                    flexDirection: 'column',
@@ -95,7 +94,7 @@ class UniChoice extends React.Component {
 			          </Swiper>
 				</View>
 			</View>
-			)
+		)
 	}
 }
 
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
   	marginTop: 50,
   },
   card: {
-    marginTop: 50,
+    marginTop: 20,
     height: 250,
     borderRadius: 10,
     borderWidth: 2,
@@ -114,10 +113,11 @@ const styles = StyleSheet.create({
   },
   heading: {
   	textAlign: 'center',
-  	fontSize: 20,
+  	fontSize: 25,
   	marginLeft: 30,
   	marginRight: 30,
   	marginTop: 40,
+  	color: '#909090',
   },
   text: {
     textAlign: 'center',
