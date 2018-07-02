@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from 'react-navigation';
 
-import Home from './Components/Home';
-import UniDecision from './Components/UniDecision';
+import Home from './src/Components/Home';
+import UniDecision from './src/Components/UniDecision';
 
-import CourseChoice from './Components/CourseChoice';
-import CourseSelection from './Components/CourseSelection';
-import CourseCards from './Components/CourseCards';
+import CourseChoice from './src/Components/CourseChoice';
+import CourseSelection from './src/Components/CourseSelection';
+import CourseCards from './src/Components/CourseCards';
 
-import UniChoice from './Components/UniChoice';
-import UniSelection from './Components/UniSelector';
-import UniCards from './Components/UniCards';
+import UniChoice from './src/Components/UniChoice';
+import UniSelection from './src/Components/UniSelector';
+import UniCards from './src/Components/UniCards';
 
-import FilteredData from './Components/FilteredData';
+import FilteredData from './src/Components/FilteredData';
 
 
 

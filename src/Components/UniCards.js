@@ -7,26 +7,18 @@ class CourseCards extends React.Component {
 		header: null, 
 	};
 	
-	constructor(props) {
-   		super(props)
+	 constructor(props) {
+    	super(props)
 
 	    this.state = {
-	      cards: ['explainerText', 'costs', 'contactTime', 'lectureTime', 'Exams', 'CareAboutResearch'],
+	      cards: ['explainerText', 'nightLife', 'dayLife', 'accomodation', 'sports', 'expenses'],
 	      cardIndex: 0,
 		  yes: 'ok',
 		  no: 'ok',
-		  answers: {},
-		  question: '',
+		  answers: [],
+		  question: ''
 	    }
-	}
-
-// puts the value of the slider in state.
-	handleChange(value) {
-		const answers = {};
-		answers['slider'] = value;
-
-		this.setState({ answers });
-	}
+  	}
 
 	renderCard = (card, index) => {
 		if (card === 'explainerText') {
@@ -35,48 +27,31 @@ class CourseCards extends React.Component {
 					<Text style={styles.text}>Narrow down whats important to you when it comes to choosing a course.</Text>
 				</View>
 				)
-		} else if (card === 'costs') {
+		} else if (card === 'nightLife') {
 			return (
 				<View style={styles.card} key={index}>
 					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
-					<View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', flex: 1}}>
-					  <View>
-					    <Text>0 </Text>
-					  </View>
-					  <View>
-					    <Slider 
-							style={styles.slider}
-							maximumValue={10}
-							step={1}
-							onSlidingComplete={(value) => this.handleChange(value)}
-						/>
-					  </View>
-					  <View>
-					    <Text> 10</Text>
-					  </View>
-					</View>
-					<Text style={styles.subText}>Adjust the slider if you want to be more acurate</Text>
 				</View>
 				)
-		} else if (card === 'contactTime') {
+		} else if (card === 'dayLife') {
 			return (
 				<View style={styles.card} key={index}>
 				<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
-		} else if (card === 'lectureTime') {
+		} else if (card === 'accomodation') {
 			return (
 				<View style={styles.card} key={index}>
 					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
-		} else if (card === 'Exams') {
+		} else if (card === 'sports') {
 			return (
 				<View style={styles.card} key={index}>
 					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
-		} else if (card === 'CareAboutResearch') {
+		} else if (card === 'expenses') {
 			return (
 				<View style={styles.card} key={index}>
 					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
@@ -86,40 +61,38 @@ class CourseCards extends React.Component {
 	};
 
 
-	onSwiped = (index) => {
-		// set state yes and no to what fontAwesome icon or text you want for the next card.
-		const swipes = [
-			{yes: 'hell yeah', no: 'nah'}, //costs
-			{yes: 'yup', no: 'nope'}, // contactTime
-			{yes: 'hey', no: 'nay'}, // lectureTime
-			{yes: 'uh huh', no: 'nu uh'}, // Exams 
-			{yes: 'uh huh', no: 'nu uh'}, // CareAboutResearch 
-			{yes: '', no: ''}, // onSwipedAll 
-		];
+	handleSwipe = (index, answer) => {
+		const answers = Object.assign({}, this.state.answers);
+		answers[this.state.cards[index]] = answer;
 
-		let questions = [
-		'Are you a big spender or a moderate mouse?', 
-		'Do you care about how much contact time you get with a tutor?', 
-		'Lecture Time', 
-		'Course work over Exams?', 
-		'care about research',
-		];
-
-		this.setState({
-			yes: swipes[index].yes,
-			no: swipes[index].no,
-			question: questions[index],
-		})
+	  this.setState({ answers });
 	}
 
-// adds yes or no for direction of swipe into the state.
-	handleSwipe = (index, answer) => {
-	  // save data to state.
-	  const key = this.state.cards[index];
-	  let answers = Object.assign({}, this.state.answers)
-	  answers[key] = answer;
 
-	  this.setState({ answers })
+	onSwiped(cardIndex) {
+				// set state yes and no to what fontAwesome icon or text you want for the next card.
+	const swipes = [
+		{yes: 'hell yeah', no: 'nah'}, // nightLife
+		{yes: 'yup', no: 'nope'}, // dayLife
+		{yes: 'hey', no: 'nay'}, // accomodation
+		{yes: 'uh huh', no: 'nu uh'}, // sports 
+		{yes: 'uh huh', no: 'nu uh'}, // expenses 
+		{yes: 'uh huh', no: 'nu uh'}, // onSwipedAll 
+		];
+
+	const questions = [
+	'Night Life',
+	'Day Life',
+	'Accomodation',
+	'Sports',
+	'Expenses',
+	]
+
+	this.setState({
+		yes: swipes[cardIndex].yes,
+		no: swipes[cardIndex].no,
+		question: questions[cardIndex],
+	})
 	}
 
 	render() {
@@ -135,8 +108,8 @@ class CourseCards extends React.Component {
 		            ref={swiper => {
 		              this.swiper = swiper
 		            }}
-		            onSwiped={(cardIndex) => this.onSwiped(cardIndex)}
-		            onSwipedAll={() => navigate('UniChoice')}
+		            onSwiped={(cardIndex) => this.onSwiped(cardIndex)} // set state with yes/no things
+		            onSwipedAll={() => navigate('FilteredData')}
 		            cards={this.state.cards}
 		            onSwipedRight={(cardIndex) => this.handleSwipe(cardIndex, 'yes')}
 		            onSwipedLeft={(cardIndex) => this.handleSwipe(cardIndex, 'no')}
@@ -145,7 +118,6 @@ class CourseCards extends React.Component {
 		            stackSize={3}
 		            verticalSwipe={false}
 		            stackSeparation={15}
-		            overlayOpacityHorizontalThreshold={0}
 		            overlayLabels={{
 		              left: {
 		                title: this.state.no,
@@ -160,8 +132,8 @@ class CourseCards extends React.Component {
 		                    flexDirection: 'column',
 		                    alignItems: 'flex-end',
 		                    justifyContent: 'flex-start',
-		                    marginTop: 300,
-		                    marginLeft: 0
+		                    marginTop: 250,
+		                    marginLeft: 0,
 		                  }
 		                }
 		              },
@@ -178,8 +150,8 @@ class CourseCards extends React.Component {
 		                    flexDirection: 'column',
 		                    alignItems: 'flex-start',
 		                    justifyContent: 'flex-start',
-		                    marginTop: 300,
-		                    marginLeft: 0
+		                    marginTop: 250,
+		                    marginLeft: 0,
 		                  }
 		                }
 		              },
@@ -206,17 +178,12 @@ const styles = StyleSheet.create({
   	fontSize: 20,
   	marginLeft: 30,
   	marginRight: 30,
+  	marginTop: 40,
   },
   image: {
   	height: 100,
   	width: 100,
   	alignSelf: 'center',
-  },
-  text: {
-    textAlign: 'center',
-    margin: 10,
-    fontSize: 30,
-    backgroundColor: 'transparent'
   },
   subText: {
   	textAlign: 'center',
@@ -224,15 +191,17 @@ const styles = StyleSheet.create({
     fontSize: 10,
     backgroundColor: 'transparent'
   },
+  text: {
+    textAlign: 'center',
+    margin: 10,
+    fontSize: 30,
+    backgroundColor: 'transparent'
+  },
   done: {
     textAlign: 'center',
     fontSize: 30,
     color: 'white',
     backgroundColor: 'transparent'
-  },
-  slider: {
-	width: 130,
-	 alignSelf: 'center',
   },
 })
 
