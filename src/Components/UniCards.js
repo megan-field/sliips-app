@@ -126,13 +126,14 @@ class CourseCards extends React.Component {
 		                    backgroundColor: 'black',
 		                    borderColor: 'black',
 		                    color: 'white',
-		                    borderWidth: 1
+		                    borderWidth: 1,
+		                    fontSize: 20,
 		                  },
 		                  wrapper: {
 		                    flexDirection: 'column',
 		                    alignItems: 'flex-end',
 		                    justifyContent: 'flex-start',
-		                    marginTop: 250,
+		                    marginTop: -40,
 		                    marginLeft: 0,
 		                  }
 		                }
@@ -144,13 +145,14 @@ class CourseCards extends React.Component {
 		                    backgroundColor: 'black',
 		                    borderColor: 'black',
 		                    color: 'white',
-		                    borderWidth: 1
+		                    borderWidth: 1,
+		                    fontSize: 20,
 		                  },
 		                  wrapper: {
 		                    flexDirection: 'column',
 		                    alignItems: 'flex-start',
 		                    justifyContent: 'flex-start',
-		                    marginTop: 250,
+		                    marginTop: -40,
 		                    marginLeft: 0,
 		                  }
 		                }
@@ -166,7 +168,8 @@ class CourseCards extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
-    height: 200,
+  	marginTop: 50,
+    height: 250,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#E8E8E8',
@@ -178,7 +181,6 @@ const styles = StyleSheet.create({
   	fontSize: 20,
   	marginLeft: 30,
   	marginRight: 30,
-  	marginTop: 40,
   },
   image: {
   	height: 100,
@@ -188,7 +190,7 @@ const styles = StyleSheet.create({
   subText: {
   	textAlign: 'center',
     margin: 10,
-    fontSize: 10,
+    fontSize: 30,
     backgroundColor: 'transparent'
   },
   text: {

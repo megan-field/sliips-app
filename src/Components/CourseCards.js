@@ -20,6 +20,12 @@ class CourseCards extends React.Component {
 	    }
 	}
 
+// This stops the handleChange on slider stop updating and restarting the cards on every swiper change.
+	shouldComponentUpdate(nextProps, nextState) {
+		if (this.state.answers.slider !== nextState.answers.slider) return false;
+			else return true;
+	}
+
 // puts the value of the slider in state.
 	handleChange(value) {
 		const answers = {};
@@ -47,6 +53,7 @@ class CourseCards extends React.Component {
 					    <Slider 
 							style={styles.slider}
 							maximumValue={10}
+							value={5}
 							step={1}
 							onSlidingComplete={(value) => this.handleChange(value)}
 						/>
@@ -86,6 +93,7 @@ class CourseCards extends React.Component {
 	};
 
 
+// adds yes or no for direction of swipe into the state.
 	onSwiped = (index) => {
 		const swipes = [
 			{yes: 'hell yeah', no: 'nah'}, //costs
@@ -111,7 +119,6 @@ class CourseCards extends React.Component {
 		})
 	}
 
-// adds yes or no for direction of swipe into the state.
 	handleSwipe = (index, answer) => {
 	  // save data to state.
 	  const key = this.state.cards[index];
@@ -153,13 +160,14 @@ class CourseCards extends React.Component {
 		                    backgroundColor: 'black',
 		                    borderColor: 'black',
 		                    color: 'white',
-		                    borderWidth: 1
+		                    borderWidth: 1,
+		                    fontSize: 20,
 		                  },
 		                  wrapper: {
 		                    flexDirection: 'column',
 		                    alignItems: 'flex-end',
 		                    justifyContent: 'flex-start',
-		                    marginTop: 250,
+		                    marginTop: -40,
 		                    marginLeft: 0
 		                  }
 		                }
@@ -171,13 +179,14 @@ class CourseCards extends React.Component {
 		                    backgroundColor: 'black',
 		                    borderColor: 'black',
 		                    color: 'white',
-		                    borderWidth: 1
+		                    borderWidth: 1,
+		                    fontSize: 20,
 		                  },
 		                  wrapper: {
 		                    flexDirection: 'column',
 		                    alignItems: 'flex-start',
 		                    justifyContent: 'flex-start',
-		                    marginTop: 250,
+		                    marginTop: -40,
 		                    marginLeft: 0
 		                  }
 		                }
@@ -193,7 +202,8 @@ class CourseCards extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
-    height: 200,
+  	marginTop: 50,
+    height: 250,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#E8E8E8',
