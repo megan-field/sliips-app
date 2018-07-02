@@ -64,7 +64,7 @@ class LandingPage extends React.Component {
                     flexDirection: 'column',
                     alignItems: 'flex-end',
                     justifyContent: 'flex-start',
-                    marginTop: 300,
+                    marginTop: 250,
                     marginLeft: 0
                   }
                 }
@@ -82,7 +82,7 @@ class LandingPage extends React.Component {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
-                    marginTop: 300,
+                    marginTop: 250,
                     marginLeft: 0
                   }
                 }
@@ -100,7 +100,7 @@ class LandingPage extends React.Component {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
-                    marginTop: 300,
+                    marginTop: 30,
                     marginLeft: 0
                   }
                 }
