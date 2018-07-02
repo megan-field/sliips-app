@@ -122,14 +122,15 @@ class FilteredData extends React.Component {
                     backgroundColor: 'black',
                     borderColor: 'black',
                     color: 'white',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    fontSize: 30,
                   },
                   wrapper: {
                     flexDirection: 'column',
                     alignItems: 'flex-end',
                     justifyContent: 'flex-start',
-                    marginTop: 30,
-                    marginLeft: -30
+                    marginTop: -40,
+                    marginLeft: 0,
                   }
                 }
               },
@@ -140,14 +141,15 @@ class FilteredData extends React.Component {
                     backgroundColor: 'black',
                     borderColor: 'black',
                     color: 'white',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    fontSize: 30,
                   },
                   wrapper: {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
-                    marginTop: 30,
-                    marginLeft: 30
+                    marginTop: -40,
+                    marginLeft: 0
                   }
                 }
               },
@@ -158,14 +160,15 @@ class FilteredData extends React.Component {
                     backgroundColor: 'black',
                     borderColor: 'black',
                     color: 'white',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    fontSize: 30,
                   },
                   wrapper: {
                     flexDirection: 'column',
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
-                    marginTop: 30,
-                    marginLeft: 30
+                    marginTop: -40,
+                    marginLeft: 0
                   }
                 }
               },
@@ -173,7 +176,6 @@ class FilteredData extends React.Component {
           >
           </Swiper>
         </View>
-
       </View>
 			)
 	}
@@ -181,6 +183,7 @@ class FilteredData extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
+    marginTop: 50,
     height: 300,
     borderRadius: 4,
     borderWidth: 1,

@@ -63,13 +63,14 @@ class UniChoice extends React.Component {
 			                    backgroundColor: 'black',
 			                    borderColor: 'black',
 			                    color: 'white',
-			                    borderWidth: 1
+			                    borderWidth: 1,
+			                    fontSize: 30,
 			                  },
 			                  wrapper: {
 			                    flexDirection: 'column',
 			                    alignItems: 'flex-end',
 			                    justifyContent: 'flex-start',
-			                    marginTop: 250,
+			                    marginTop: -40,
 			                    marginLeft: 0
 			                  }
 			                }
@@ -81,13 +82,14 @@ class UniChoice extends React.Component {
 			                    backgroundColor: 'black',
 			                    borderColor: 'black',
 			                    color: 'white',
-			                    borderWidth: 1
+			                    borderWidth: 1,
+			                    fontsize: 30,
 			                  },
 			                  wrapper: {
 			                    flexDirection: 'column',
 			                    alignItems: 'flex-start',
 			                    justifyContent: 'flex-start',
-			                    marginTop: 250,
+			                    marginTop: -40,
 			                    marginLeft: 0
 			                  }
 			                }
@@ -106,7 +108,8 @@ const styles = StyleSheet.create({
   	marginTop: 50,
   },
   card: {
-    height: 200,
+    marginTop: 50,
+    height: 250,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#E8E8E8',
