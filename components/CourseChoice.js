@@ -98,10 +98,6 @@ class CourseChoice extends React.Component {
 			          >
 			          </Swiper>
 				</View>
-				<View style={{ marginTop: 400 }}>
-		          <Text style={{ textAlign: 'center' }}>Swipe <Text style={{fontWeight: 'bold'}}>Right </Text>for Yes</Text>
-		          <Text style={{ textAlign: 'center' }}>and <Text style={{fontWeight: 'bold'}}>Left </Text>for Don't Know Yet</Text>
-		        </View>
 			</View>
 			)
 	}
@@ -137,14 +133,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     backgroundColor: 'transparent'
-  },
-  box: {
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: '#000',
-    width: 250,
-    alignSelf: 'center',
-    height: 175
   },
 })
 

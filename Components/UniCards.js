@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Slider, Button } from 'react-native';
+import { View, Text, StyleSheet, Slider, Button, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 class CourseCards extends React.Component {
@@ -11,43 +11,50 @@ class CourseCards extends React.Component {
     	super(props)
 
 	    this.state = {
-	      cards: ['nightLife', 'dayLife', 'accomodation', 'sports', 'expenses'],
+	      cards: ['explainerText', 'nightLife', 'dayLife', 'accomodation', 'sports', 'expenses'],
 	      cardIndex: 0,
-		  yes: 'Yes',
-		  no: 'No',
+		  yes: 'ok',
+		  no: 'ok',
 		  answers: [],
+		  question: ''
 	    }
   	}
 
 	renderCard = (card, index) => {
-		if (card === 'nightLife') {
+		if (card === 'explainerText') {
 			return (
 				<View style={styles.card} key={index}>
-					<Text style={styles.text}>nightLife</Text>
+					<Text style={styles.text}>Narrow down whats important to you when it comes to choosing a course.</Text>
+				</View>
+				)
+		} else if (card === 'nightLife') {
+			return (
+				<View style={styles.card} key={index}>
+					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
 		} else if (card === 'dayLife') {
 			return (
 				<View style={styles.card} key={index}>
-				<Text style={styles.text}>DayLife</Text>
+				<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
 		} else if (card === 'accomodation') {
 			return (
 				<View style={styles.card} key={index}>
-					<Text style={styles.text}>Accomodation</Text>
+					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
 		} else if (card === 'sports') {
 			return (
 				<View style={styles.card} key={index}>
-					<Text style={styles.text}>Sports</Text>
+					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
 		} else if (card === 'expenses') {
 			return (
 				<View style={styles.card} key={index}>
-					<Text style={styles.text}>Expenses</Text>
+					<Image source={require('../theme/images/CourseCards/image.png')} style={styles.image} />
 				</View>
 				)
 		}
@@ -61,33 +68,41 @@ class CourseCards extends React.Component {
 	  this.setState({ answers });
 	}
 
-	handleChange(value, element) {
-		this.setState({
-			[element]: value,
-		})
-	}
 
 	onSwiped(cardIndex) {
 				// set state yes and no to what fontAwesome icon or text you want for the next card.
 	const swipes = [
-		{yes: 'hell yeah', no: 'nah'}, // dayLife
-		{yes: 'yup', no: 'nope'}, // accomodation
-		{yes: 'hey', no: 'nay'}, // sports
+		{yes: 'hell yeah', no: 'nah'}, // nightLife
+		{yes: 'yup', no: 'nope'}, // dayLife
+		{yes: 'hey', no: 'nay'}, // accomodation
+		{yes: 'uh huh', no: 'nu uh'}, // sports 
 		{yes: 'uh huh', no: 'nu uh'}, // expenses 
+		{yes: 'uh huh', no: 'nu uh'}, // onSwipedAll 
 		];
 
+	const questions = [
+	'Night Life',
+	'Day Life',
+	'Accomodation',
+	'Sports',
+	'Expenses',
+	]
+
 	this.setState({
-		yes: swipes[index].yes,
-		no: swipes[index].no,
+		yes: swipes[cardIndex].yes,
+		no: swipes[cardIndex].no,
+		question: questions[cardIndex],
 	})
 	}
 
 	render() {
       const { navigate } = this.props.navigation;
-      console.log(this.state.answers)
+
 		return (
-			<View>
-			<Text style={styles.heading}>Narrow down whats important to you when it comes to choosing a University.</Text>
+			<View style={{ marginTop: 40 }}>
+			<View style={{ height: 80 }}>
+			<Text style={styles.heading}>{this.state.question}</Text>
+			</View>
 				<View>
 					<Swiper
 		            ref={swiper => {
@@ -144,10 +159,6 @@ class CourseCards extends React.Component {
 		          >
 		          </Swiper>
 	          </View>
-	          <View style={{ marginTop: 330 }}>
-          <Text style={{ textAlign: 'center' }}>Swipe <Text style={{fontWeight: 'bold'}}>Right </Text>for Yes</Text>
-          <Text style={{ textAlign: 'center' }}><Text style={{fontWeight: 'bold'}}>Left </Text>for No</Text>
-        </View>
           </View>
           )
 	}
@@ -169,6 +180,17 @@ const styles = StyleSheet.create({
   	marginRight: 30,
   	marginTop: 40,
   },
+  image: {
+  	height: 100,
+  	width: 100,
+  	alignSelf: 'center',
+  },
+  subText: {
+  	textAlign: 'center',
+    margin: 10,
+    fontSize: 10,
+    backgroundColor: 'transparent'
+  },
   text: {
     textAlign: 'center',
     margin: 10,
@@ -181,9 +203,6 @@ const styles = StyleSheet.create({
     color: 'white',
     backgroundColor: 'transparent'
   },
-  	slider: {
-		width: 180,
-	},
 })
 
 export default CourseCards;

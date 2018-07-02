@@ -11,7 +11,7 @@ class UniChoice extends React.Component {
    		super(props)
 
 	    this.state = {
-	      cards: ['Do you know what university you want to go to?'],
+	      cards: [''],
 	      cardIndex: 0,
 		  costs: 0,
 		  answer: [],
@@ -22,9 +22,7 @@ class UniChoice extends React.Component {
 		return (
 			<View key={index} style={styles.card}>
         <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'column', flex: 1}}>
-          <View style={styles.box}>
           {/*<Image source={require('')} />*/}
-          </View>
             <Text key={index} style={styles.text}>{card}</Text>
         </View>
       </View>
@@ -42,8 +40,9 @@ class UniChoice extends React.Component {
 
 	render() {
 		return (
-			<View>
-				<View style={styles.container}>
+			<View style={styles.container}>
+			<Text style={styles.heading}>Do you know what university you want to go to?</Text>
+				<View>
 					<Swiper
 			            ref={swiper => {
 			              this.swiper = swiper
@@ -97,10 +96,6 @@ class UniChoice extends React.Component {
 			          >
 			          </Swiper>
 				</View>
-				<View style={{ marginTop: 400 }}>
-		          <Text style={{ textAlign: 'center' }}>Swipe <Text style={{fontWeight: 'bold'}}>Right </Text>for Yes</Text>
-		          <Text style={{ textAlign: 'center' }}>and <Text style={{fontWeight: 'bold'}}>Left </Text>for Don't Know Yet</Text>
-		        </View>
 			</View>
 			)
 	}
@@ -110,13 +105,20 @@ const styles = StyleSheet.create({
   container: {
   	marginTop: 50,
   },
-    card: {
-    height: 300,
+  card: {
+    height: 200,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
     backgroundColor: 'white',
+  },
+  heading: {
+  	textAlign: 'center',
+  	fontSize: 20,
+  	marginLeft: 30,
+  	marginRight: 30,
+  	marginTop: 40,
   },
   text: {
     textAlign: 'center',
@@ -129,14 +131,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: 'white',
     backgroundColor: 'transparent'
-  },
-  box: {
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: '#000',
-    width: 250,
-    alignSelf: 'center',
-    height: 175
   },
 })
 
