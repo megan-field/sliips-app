@@ -18,17 +18,21 @@ import FilteredData from './src/Components/FilteredData';
 
 const App = createStackNavigator({
   Home: { screen: Home },
-  UniDecision: { screen: UniDecision },
+  UniDecision: { screen: UniDecision, navigationOptions: { header: null } },
   
-  CourseChoice: { screen: CourseChoice },
-  CourseSelection: { screen: CourseSelection },
-  CourseCards: { screen: CourseCards },
+  CourseChoice: { screen: CourseChoice, navigationOptions: { header: null } },
+  CourseSelection: { screen: CourseSelection, navigationOptions: { header: null } },
+  CourseCards: { screen: CourseCards, navigationOptions: { header: null } },
   
-  UniChoice: { screen: UniChoice },
-  UniSelection: { screen: UniSelection },
-  UniCards: { screen: UniCards }, 
+  UniChoice: { screen: UniChoice, navigationOptions: { header: null } },
+  UniSelection: { screen: UniSelection, navigationOptions: { header: null } },
+  UniCards: { screen: UniCards, navigationOptions: { header: null } }, 
 
-  FilteredData: { screen: FilteredData },
+  FilteredData: { screen: FilteredData, navigationOptions: { header: null } },
+}, { 
+	cardStyle: { 
+		// backgroundColor: '#355c7d',
+	}
 })
 
 export default App;

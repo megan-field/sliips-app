@@ -2,10 +2,6 @@ import React from 'react';
 import { View, Button, StyleSheet, Text, ScrollView } from 'react-native';
 
 class uniDecision extends React.Component {
-	static navigationOptions = { 
-		header: null, 
-	};
-
 	constructor(props) {
 		super(props)
 

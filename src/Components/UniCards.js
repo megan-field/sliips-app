@@ -3,11 +3,7 @@ import { View, Text, StyleSheet, Slider, Button, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 class CourseCards extends React.Component {
-	static navigationOptions = { 
-		header: null, 
-	};
-	
-	 constructor(props) {
+	constructor(props) {
     	super(props)
 
 	    this.state = {

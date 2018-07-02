@@ -3,10 +3,6 @@ import { View, Text, Modal, TouchableHighlight, Button, StyleSheet } from 'react
 import Swiper from 'react-native-deck-swiper';
 
 class FilteredData extends React.Component {
-  static navigationOptions = { 
-    header: null, 
-  };
-  
   constructor(props) {
     super(props)
     this.state = {

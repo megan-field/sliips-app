@@ -2,10 +2,6 @@ import React from 'react';
 import { View, Text, Picker, StyleSheet, ScrollView, Button, Item, FlatList } from 'react-native';
 
 class CourseChoice extends React.Component {
-	static navigationOptions = { 
-		header: null, 
-	};
-
 	constructor(props) {
 		super(props)
 

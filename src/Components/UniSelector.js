@@ -2,10 +2,6 @@ import React from 'react';
 import { View, Text, Picker, StyleSheet, Button, Item, FlatList } from 'react-native';
 
 class UniSelection extends React.Component {
-	static navigationOptions = { 
-		header: null, 
-	};
-
 	constructor(props) {
 		super(props)
 

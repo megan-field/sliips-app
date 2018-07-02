@@ -3,11 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 class UniChoice extends React.Component {
-	static navigationOptions = { 
-		header: null, 
-	};
-	
-		constructor(props) {
+	constructor(props) {
    		super(props)
 
 	    this.state = {
@@ -83,7 +79,7 @@ class UniChoice extends React.Component {
 			                    borderColor: 'black',
 			                    color: 'white',
 			                    borderWidth: 1,
-			                    fontsize: 30,
+			                    fontSize: 30,
 			                  },
 			                  wrapper: {
 			                    flexDirection: 'column',
