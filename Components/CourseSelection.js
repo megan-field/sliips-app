@@ -50,21 +50,17 @@ class CourseChoice extends React.Component {
 				<View>
 					<Text style={styles.text}>Choose from as many courses as you're intersted in.</Text>
 				</View>
-				<View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-					<Picker
-						onValueChange={(itemValue) => this.handlePicker(itemValue)}
-						style={{ width: 200, borderRadius: 5, marginBottom: 20}}
-					>
-						<Picker.Item label="Courses" />
-						<Picker.Item label="English" value="English" />
-	  					<Picker.Item label="Physics" value="Physics" />
-	  					<Picker.Item label="Biology" value="Biology" />
-	  					<Picker.Item label="Chemistry" value="Chemistry" />
-	  					<Picker.Item label="History" value="History" />
-	  					<Picker.Item label="Mathematics" value="Mathematics" />
-					</Picker>
+				<View style={{ height: 150, marginTop: 30 }}>
+				<FlatList
+				data={[{ key: 'English' }, { key: 'Physics' }, { key: 'Biology' }, { key: 'Chemistry' }, { key: 'History' }, { key: 'Mathematics' }]}
+				renderItem={({item}) => (
+					<View>
+						<Button onPress={() => this.handlePicker(item.key)} title={item.key} />
+					</View>
+					)}
+				/>
 				</View>
-				<View style={{ height: 100 }}>
+				<View style={{ height: 100, marginTop: 30 }}>
 					<FlatList
 						data={courseList.map((course, i) => ({ key: course, index: i})).sort((a, b) => b.index - a.index)}
 						renderItem={({item}) => (

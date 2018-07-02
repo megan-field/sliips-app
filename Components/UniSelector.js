@@ -45,21 +45,17 @@ class UniSelection extends React.Component {
 				<View>
 					<Text style={styles.text}>Choose the universities you are interested in.</Text>
 				</View>
-				<View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-					<Picker
-						onValueChange={(itemValue) => this.handlePicker(itemValue)}
-						style={{ width: 200, borderRadius: 5, marginBottom: 20}}
-					>
-						<Picker.Item label="Courses" />
-						<Picker.Item label="Glasgow" value="Glasgow" />
-	  					<Picker.Item label="Edinburgh" value="Edinburgh" />
-	  					<Picker.Item label="Manchester" value="Manchester" />
-	  					<Picker.Item label="London" value="London" />
-	  					<Picker.Item label="Birmingham" value="Birmingham" />
-	  					<Picker.Item label="Liverpool" value="Liverpool" />
-					</Picker>
+				<View style={{ height: 150, marginTop: 30 }}>
+				<FlatList
+				data={[{ key: 'Glasgow' }, { key: 'Edinburgh' }, { key: 'Manchester' }, { key: 'London' }, { key: 'Birmingham' }, { key: 'Liverpool' }]}
+				renderItem={({item}) => (
+					<View>
+						<Button onPress={() => this.handlePicker(item.key)} title={item.key} />
+					</View>
+					)}
+				/>
 				</View>
-				<View style={{ height: 100 }}>
+				<View style={{ height: 100, marginTop: 30 }}>
 					<FlatList
 						data={courseList.map((course, i) => ({ key: course, index: i})).sort((a, b) => b.index - a.index)}
 						renderItem={({item}) => (

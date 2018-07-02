@@ -14,7 +14,6 @@ import UniCards from './Components/UniCards';
 
 import FilteredData from './Components/FilteredData';
 
-import ColourPalette from './Components/ColourPalette';
 
 
 const App = createStackNavigator({
@@ -30,8 +29,6 @@ const App = createStackNavigator({
   UniCards: { screen: UniCards }, 
 
   FilteredData: { screen: FilteredData },
-
-  Colour: { screen: ColourPalette },
 })
 
 export default App;
